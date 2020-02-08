@@ -1,17 +1,10 @@
 package map;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.Rectangle;
-
+import java.awt.*;
 import javax.swing.*;
 
-public class Window{
-	
-	String[] iconsName = {"grass", "tree"};
-	ImageIcon[] icons = new ImageIcon[2];
+public class Window implements MapConfig{
+		
 	static JFrame frame;
 	
 	public static void main(String[] args) {
@@ -31,7 +24,7 @@ public class Window{
 		frame.add(new ScrolledPanel());					
 		frame.pack();
 		
-		addCombobox();
+		//addCombobox();
 		
 		frame.setVisible(true);
 	}
