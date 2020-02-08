@@ -19,38 +19,11 @@ public class Window implements MapConfig{
 		
 		frame = new JFrame("test");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new FlowLayout());
 		frame.setPreferredSize(new Dimension(1200, 700));		
 		frame.add(new ScrolledPanel());					
 		frame.pack();
-		
-		//addCombobox();
-		
+
 		frame.setVisible(true);
-	}
-	
-	private void addCombobox() {
-		JComboBox boxtype = new JComboBox<Integer>();
-		JComboBox box = new JComboBox<ImageIcon>();
-		
-		boxtype.addItem(1);
-		boxtype.addItem(2);
-		
-		for(int i=0; i<2; i++) {
-			icons[i] = creatImageIcon("/img/"+ iconsName[i] +".jpg");
-			box.addItem(icons[i]);
-		}
-		
-		frame.add(boxtype);
-		frame.add(box);
-	}
-	
-	private ImageIcon creatImageIcon(String path) {
-		java.net.URL imgURL = ScrolledPanel.class.getResource(path);
-		if(imgURL != null) {
-			return new ImageIcon(imgURL);
-		}else	
-		return null;
 	}
 }
 

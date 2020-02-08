@@ -2,6 +2,7 @@ package map;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
@@ -13,16 +14,21 @@ import javax.swing.JScrollPane;
 public class ScrolledPanel extends JPanel implements MapConfig{
 	
 	public ScrolledPanel() {
-				
+		
+		//scroll pane
 		JLabel label = new JLabel(creatImageIcon("/img/river.jpg"));			
 		JScrollPane js = new JScrollPane(label);
 		
 		this.setLayout(new BorderLayout());
-		this.setPreferredSize(new Dimension(600, 600));
+		this.setPreferredSize(new Dimension(1200, 700));
 		this.add(js, BorderLayout.CENTER);
 		
-		//PanelListener plis = new PanelListener(box);
-		//this.add(null);
+		//итн╙ combobox
+		JPanel east = new JPanel();
+		this.add(east, BorderLayout.EAST);
+		east.setLayout(new FlowLayout(FlowLayout.CENTER));
+		east.setPreferredSize(new Dimension(350, 0));
+		addCombobox(east);
 	}
 
 	private ImageIcon creatImageIcon(String path) {
@@ -33,7 +39,7 @@ public class ScrolledPanel extends JPanel implements MapConfig{
 		return null;
 	}
 	
-	private void addCombobox() {
+	private void addCombobox(JPanel east) {
 		JComboBox boxtype = new JComboBox<Integer>();
 		JComboBox box = new JComboBox<ImageIcon>();
 		
@@ -43,15 +49,13 @@ public class ScrolledPanel extends JPanel implements MapConfig{
 		for(int i=0; i<2; i++) {
 			icons[i] = creatImageIcon("/img/"+ iconsName[i] +".jpg");
 			box.addItem(icons[i]);
-		}
-		
-		this.add(boxtype);
-		this.add(box);
+		}		
+		east.add(boxtype);
+		east.add(box);
 	}	
 	
 	@Override
 	public void paint(Graphics g) {
-		super.paint(g);
-		
+		super.paint(g);		
 	}
 }
