@@ -29,10 +29,10 @@ public class PanelListener extends MouseAdapter implements MapConfig{
 		ImageIcon icon = (ImageIcon)box.getSelectedItem();
 		
 		if(icon.toString().endsWith("grass.jpg")){
-			map1[i][j] = 1;
+			map1[i][j] = 0;
 			iconsMap1[i][j] = icon;
 		}else if(icon.toString().endsWith("tree.jpg")){
-			map2[i][j] = 2;
+			map2[i][j] = 1;
 			iconsMap2[i][j] = icon;
 		}
 				
