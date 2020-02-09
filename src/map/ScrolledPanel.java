@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 
+import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -20,10 +22,9 @@ public class ScrolledPanel extends JPanel implements MapConfig{
 	
 	public ScrolledPanel() {
 		
-		//scroll pane
-		
+		//scroll pane		
 		JPanel centerPanel = new JPanel();
-		centerPanel.setPreferredSize(new Dimension(2000, 2000));
+		centerPanel.setPreferredSize(new Dimension(MapWidth, MapHeight));
 		JScrollPane js = new JScrollPane(centerPanel);			
 		
 		this.setLayout(new BorderLayout());
@@ -59,13 +60,32 @@ public class ScrolledPanel extends JPanel implements MapConfig{
 		for(int i=0; i<2; i++) {
 			icons[i] = creatImageIcon("/img/"+ iconsName[i] +".jpg");
 			box.addItem(icons[i]);
-		}		
+		}
+		
+		east.add(Box.createRigidArea(new Dimension(0, 40)));
+		
 		east.add(boxtype);
+		boxtype.setMaximumSize(new Dimension(50, 20));
+		
 		east.add(box);
+		box.setMaximumSize(new Dimension(350, 300));
+		box.setBorder(BorderFactory.createEmptyBorder(40, 0, 0, 0));
 	}	
 	
 	@Override
 	public void paint(Graphics g) {
-		super.paint(g);		
+		super.paint(g);	
+		for(int i=0; i<iconsMap1[0].length; i++) {
+			for(int j=0; j<iconsMap1.length; j++) {
+				if(iconsMap1[i][j] != null)
+					g.drawImage(iconsMap1[i][j].getImage(), i*eleWidth, j*eleHeight, eleWidth, eleHeight, null);
+			}
+		}
+		for(int i=0; i<iconsMap2[0].length; i++) {
+			for(int j=0; j<iconsMap2.length; j++) {
+				if(iconsMap2[i][j] != null)
+					g.drawImage(iconsMap2[i][j].getImage(), i*eleWidth, j*eleHeight, eleWidth, eleHeight, null);
+			}
+		}
 	}
 }
