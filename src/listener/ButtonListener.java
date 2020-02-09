@@ -13,7 +13,6 @@ public class ButtonListener implements ActionListener, MapConfig{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("save")) {
 			String path = MapConfig.class.getResource(relativePath).getPath();
-			System.out.println(path);
 			try {
 				FileOutputStream fout = new FileOutputStream(path);
 				DataOutputStream dout = new DataOutputStream(fout);

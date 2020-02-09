@@ -19,12 +19,12 @@ import javax.swing.JScrollPane;
 import listener.ButtonListener;
 import listener.PanelListener;
 
-public class MyPanel extends JPanel implements MapConfig{
+public class MapPanel extends JPanel implements MapConfig{
 	
 	JComboBox boxtype;
 	JComboBox box;	
 	
-	public MyPanel() {
+	public MapPanel() {
 		
 		//scroll pane		
 		JPanel centerPanel = new JPanel();
@@ -52,7 +52,7 @@ public class MyPanel extends JPanel implements MapConfig{
 	}
 
 	private ImageIcon creatImageIcon(String path) {
-		java.net.URL imgURL = MyPanel.class.getResource(path);
+		java.net.URL imgURL = MapPanel.class.getResource(path);
 			if(imgURL != null) {
 				return new ImageIcon(imgURL);
 			}else	
