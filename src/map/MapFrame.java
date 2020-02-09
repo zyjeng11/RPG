@@ -17,7 +17,7 @@ public class MapFrame implements MapConfig{
 
 	private void showGUI() {
 		
-		frame = new JFrame("test");
+		frame = new JFrame("Map editor");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		frame.add(new MapPanel());			
 		frame.pack();
