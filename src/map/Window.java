@@ -18,10 +18,8 @@ public class Window implements MapConfig{
 	private void showGUI() {
 		
 		frame = new JFrame("test");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setPreferredSize(new Dimension(1200, 700));		
-		frame.add(new ScrolledPanel());	
-		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		frame.add(new ScrolledPanel());			
 		frame.pack();
 
 		frame.setVisible(true);

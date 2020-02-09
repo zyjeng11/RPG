@@ -25,8 +25,15 @@ public class PanelListener extends MouseAdapter implements MapConfig{
 		System.out.println(i+", "+j);
 		
 		ImageIcon icon = (ImageIcon)box.getSelectedItem();
-		System.out.println(icon);
 		
+		if(icon.toString().endsWith("grass.jpg")){
+			map1[i][j] = 1;
+			iconsMap1[i][j] = icon;
+		}else if(icon.toString().endsWith("tree.jpg")){
+			map2[i][j] = 2;
+			iconsMap2[i][j] = icon;
+		}
+				
 		panel.repaint();
 	}
 }
