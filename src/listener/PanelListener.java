@@ -1,4 +1,4 @@
-package map;
+package listener;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -6,6 +6,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+
+import map.MapConfig;
 
 public class PanelListener extends MouseAdapter implements MapConfig{
 	

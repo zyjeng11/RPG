@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import listener.PanelListener;
+
 public class MyPanel extends JPanel implements MapConfig{
 	
 	JComboBox boxtype;
@@ -77,10 +79,6 @@ public class MyPanel extends JPanel implements MapConfig{
 		box.setMaximumSize(new Dimension(350, 300));
 		box.setBorder(BorderFactory.createEmptyBorder(40, 0, 40, 0));
 	}	
-	
-	private void addSaveButton(JPanel east) {
-		
-	}
 	
 	@Override
 	public void paint(Graphics g) {
