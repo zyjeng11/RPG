@@ -13,10 +13,9 @@ public class ButtonListener implements ActionListener, MapConfig{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("save")) {
 			String path = MapConfig.class.getResource(relativePath).getPath();
-			try {
-				FileOutputStream fout = new FileOutputStream(path);
-				DataOutputStream dout = new DataOutputStream(fout);
-				
+			try (FileOutputStream fout = new FileOutputStream(path);
+				DataOutputStream dout = new DataOutputStream(fout);)
+			{							
 				for(int i=0; i<map1[0].length; i++) {
 					for(int j=0; j<map1.length; j++) {
 						dout.writeInt(map1[i][j]);
