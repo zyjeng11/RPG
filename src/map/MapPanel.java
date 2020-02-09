@@ -51,8 +51,8 @@ public class MapPanel extends JPanel implements MapConfig{
 		js.addMouseListener(new PanelListener(box, this));	
 	}
 
-	private ImageIcon creatImageIcon(String path) {
-		java.net.URL imgURL = MapPanel.class.getResource(path);
+	public static ImageIcon creatImageIcon(String path) {
+		java.net.URL imgURL = MapConfig.class.getResource(path);
 			if(imgURL != null) {
 				return new ImageIcon(imgURL);
 			}else	
