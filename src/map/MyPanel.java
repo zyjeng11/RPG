@@ -10,6 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -36,6 +37,11 @@ public class MyPanel extends JPanel implements MapConfig{
 		this.add(east, BorderLayout.EAST);
 		east.setLayout(new BoxLayout(east, BoxLayout.PAGE_AXIS));		
 		addCombobox(east);
+		
+		//add save button
+		JButton save = new JButton("save");
+		save.setActionCommand("save");
+		east.add(save);
 		
 		//add listener
 		js.addMouseListener(new PanelListener(box, this));
@@ -69,8 +75,12 @@ public class MyPanel extends JPanel implements MapConfig{
 		
 		east.add(box);
 		box.setMaximumSize(new Dimension(350, 300));
-		box.setBorder(BorderFactory.createEmptyBorder(40, 0, 0, 0));
+		box.setBorder(BorderFactory.createEmptyBorder(40, 0, 40, 0));
 	}	
+	
+	private void addSaveButton(JPanel east) {
+		
+	}
 	
 	@Override
 	public void paint(Graphics g) {
