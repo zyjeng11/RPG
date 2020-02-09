@@ -19,7 +19,7 @@ public class Window implements MapConfig{
 		
 		frame = new JFrame("test");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
-		frame.add(new ScrolledPanel());			
+		frame.add(new MyPanel());			
 		frame.pack();
 
 		frame.setVisible(true);

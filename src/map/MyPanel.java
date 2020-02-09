@@ -15,12 +15,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class ScrolledPanel extends JPanel implements MapConfig{
+public class MyPanel extends JPanel implements MapConfig{
 	
 	JComboBox boxtype;
 	JComboBox box;	
 	
-	public ScrolledPanel() {
+	public MyPanel() {
 		
 		//scroll pane		
 		JPanel centerPanel = new JPanel();
@@ -42,7 +42,7 @@ public class ScrolledPanel extends JPanel implements MapConfig{
 	}
 
 	private ImageIcon creatImageIcon(String path) {
-		java.net.URL imgURL = ScrolledPanel.class.getResource(path);
+		java.net.URL imgURL = MyPanel.class.getResource(path);
 			if(imgURL != null) {
 				return new ImageIcon(imgURL);
 			}else	
