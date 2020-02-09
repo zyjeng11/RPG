@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import listener.ButtonListener;
 import listener.PanelListener;
 
 public class MyPanel extends JPanel implements MapConfig{
@@ -43,10 +44,11 @@ public class MyPanel extends JPanel implements MapConfig{
 		//add save button
 		JButton save = new JButton("save");
 		save.setActionCommand("save");
+		save.addActionListener(new ButtonListener());
 		east.add(save);
 		
 		//add listener
-		js.addMouseListener(new PanelListener(box, this));
+		js.addMouseListener(new PanelListener(box, this));	
 	}
 
 	private ImageIcon creatImageIcon(String path) {
