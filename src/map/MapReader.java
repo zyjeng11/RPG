@@ -10,7 +10,7 @@ public class MapReader implements MapConfig{
 		
 	//read map from file
 		for (int i = 0; i < 2; i++) {
-			icons[i] = MapPanel.creatImageIcon("/img/" + iconsName[i] + ".jpg");
+			icons_ground[i] = MapPanel.creatImageIcon("/img/" + iconsName_ground[i] + ".jpg");
 		}				
 
 		String path = getClass().getResource(relativePath).getPath();
@@ -33,8 +33,8 @@ public class MapReader implements MapConfig{
 		//turn map file to icons array
 		for (int i = 0; i < map1.length; i++) {
 			for (int j = 0; j < map1.length; j++) {
-				iconsMap1[i][j] = icons[map1[i][j]];
-				iconsMap2[i][j] = icons[map2[i][j]];
+				iconsMap1[i][j] = icons_ground[map1[i][j]];
+				iconsMap2[i][j] = icons_ground[map2[i][j]];
 			}
 		}
 	}

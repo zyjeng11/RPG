@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.event.ItemListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -16,13 +17,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import listener.BoxListener;
 import listener.ButtonListener;
 import listener.PanelListener;
 
 public class MapPanel extends JPanel implements MapConfig{
 	
+	JLabel label = new JLabel("test");
 	JComboBox boxtype;
-	JComboBox box;	
+	JComboBox groundBox;
+	JComboBox cornerBox;
+	JComboBox roadBox;	
+	JComboBox[] boxes = {boxtype, groundBox, cornerBox, roadBox};
 	
 	public MapPanel() {
 		
@@ -48,7 +54,7 @@ public class MapPanel extends JPanel implements MapConfig{
 		east.add(save);
 		
 		//add listener
-		js.addMouseListener(new PanelListener(box, this));	
+		js.addMouseListener(new PanelListener(this, label));	
 	}
 
 	public static ImageIcon creatImageIcon(String path) {
@@ -59,28 +65,48 @@ public class MapPanel extends JPanel implements MapConfig{
 		return null;
 	}
 	
-	//add combobox to the east panel
+	//add combo box to the east panel
 	private void addCombobox(JPanel east) {
-		boxtype = new JComboBox<Integer>();
-		box = new JComboBox<ImageIcon>();
-		
+						
+		boxtype = new JComboBox<Integer>();		
+		groundBox = new JComboBox<ImageIcon>();
+		cornerBox = new JComboBox<ImageIcon>();
+		roadBox = new JComboBox<ImageIcon>();
+						
 		boxtype.addItem(1);
 		boxtype.addItem(2);
-		
-		for(int i=0; i<iconsName.length; i++) {
-			icons[i] = creatImageIcon("/img/"+ iconsName[i] +".jpg");
-			box.addItem(icons[i]);
+				
+		for(int i=0; i<iconsName_ground.length; i++) {
+			icons_ground[i] = creatImageIcon("/img/" + iconsName_ground[i] + ".jpg");
+			groundBox.addItem(icons_ground[i]);
 		}
-		
-		east.add(Box.createRigidArea(new Dimension(0, 40)));
-		
+		for(int i=0; i<iconsName_corner.length; i++) {
+			icons_corner[i] = creatImageIcon("/img/" + iconsName_corner[i] + ".jpg");
+			cornerBox.addItem(icons_corner[i]);
+		}
+		for(int i=0; i<iconsName_road.length; i++) {
+			icons_road[i] = creatImageIcon("/img/" + iconsName_road[i] + ".jpg");
+			roadBox.addItem(icons_road[i]);
+		}
+
+		ItemListener ilis = new BoxListener(label);
+		boxtype.addItemListener(ilis);	
+		groundBox.addItemListener(ilis);	
+		cornerBox.addItemListener(ilis);	
+		roadBox.addItemListener(ilis);	
+				
+		east.add(label);
+		east.add(Box.createRigidArea(new Dimension(0, 40)));		
 		east.add(boxtype);
 		boxtype.setMaximumSize(new Dimension(50, 20));
 		
-		east.add(box);
-		box.setMaximumSize(new Dimension(100, 100));
-		box.setBorder(BorderFactory.createEmptyBorder(40, 0, 40, 0));
-	}	
+		east.add(groundBox);
+		east.add(cornerBox);
+		east.add(roadBox);
+//		box.setMaximumSize(new Dimension(110, 180));
+//		box.setBorder(BorderFactory.createEmptyBorder(40, 0, 40, 0));
+	}
+	
 	
 	@Override
 	public void paint(Graphics g) {
