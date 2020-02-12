@@ -23,7 +23,7 @@ import listener.PanelListener;
 
 public class MapPanel extends JPanel implements MapConfig{
 	
-	JLabel label = new JLabel("test");
+	JLabel label = new JLabel();
 	JComboBox boxtype;
 	JComboBox groundBox;
 	JComboBox cornerBox;
@@ -88,7 +88,11 @@ public class MapPanel extends JPanel implements MapConfig{
 			icons_road[i] = creatImageIcon("/img/" + iconsName_road[i] + ".jpg");
 			roadBox.addItem(icons_road[i]);
 		}
-
+		
+		groundBox.setMaximumSize(new Dimension(150, 150));
+		cornerBox.setMaximumSize(new Dimension(150, 150));
+		roadBox.setMaximumSize(new Dimension(150, 150));
+		
 		ItemListener ilis = new BoxListener(label);
 		boxtype.addItemListener(ilis);	
 		groundBox.addItemListener(ilis);	
