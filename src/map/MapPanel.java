@@ -67,7 +67,7 @@ public class MapPanel extends JPanel implements MapConfig{
 		boxtype.addItem(1);
 		boxtype.addItem(2);
 		
-		for(int i=0; i<2; i++) {
+		for(int i=0; i<iconsName.length; i++) {
 			icons[i] = creatImageIcon("/img/"+ iconsName[i] +".jpg");
 			box.addItem(icons[i]);
 		}
@@ -78,7 +78,7 @@ public class MapPanel extends JPanel implements MapConfig{
 		boxtype.setMaximumSize(new Dimension(50, 20));
 		
 		east.add(box);
-		box.setMaximumSize(new Dimension(350, 300));
+		box.setMaximumSize(new Dimension(100, 100));
 		box.setBorder(BorderFactory.createEmptyBorder(40, 0, 40, 0));
 	}	
 	

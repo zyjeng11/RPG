@@ -7,6 +7,7 @@ import java.io.IOException;
 public class MapReader implements MapConfig{
 		
 	public void readMap() {
+		
 	//read map from file
 		for (int i = 0; i < 2; i++) {
 			icons[i] = MapPanel.creatImageIcon("/img/" + iconsName[i] + ".jpg");
