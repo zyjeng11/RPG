@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.ItemListener;
 
 import javax.swing.BorderFactory;
@@ -27,8 +28,7 @@ public class MapPanel extends JPanel implements MapConfig{
 	JComboBox boxtype;
 	JComboBox groundBox;
 	JComboBox cornerBox;
-	JComboBox roadBox;	
-	JComboBox[] boxes = {boxtype, groundBox, cornerBox, roadBox};
+	JComboBox roadBox;
 	
 	public MapPanel() {
 		
@@ -83,7 +83,7 @@ public class MapPanel extends JPanel implements MapConfig{
 		for(int i=0; i<iconsName_corner.length; i++) {
 			icons_corner[i] = creatImageIcon("/img/" + iconsName_corner[i] + ".jpg");
 			cornerBox.addItem(icons_corner[i]);
-		}
+		}		
 		for(int i=0; i<iconsName_road.length; i++) {
 			icons_road[i] = creatImageIcon("/img/" + iconsName_road[i] + ".jpg");
 			roadBox.addItem(icons_road[i]);

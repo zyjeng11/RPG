@@ -5,11 +5,11 @@ import javax.swing.ImageIcon;
 
 public interface MapConfig {
 		
-    int eleWidth = 50;  
-    int eleHeight = 50; 
+    int eleWidth = 100;  
+    int eleHeight = 100; 
    
-    int MapWidth = 1000;  
-    int MapHeight= 1000; 
+    int MapWidth = 2000;  
+    int MapHeight= 2000; 
     
     String[] iconsType = {"ground", "road", "corner"};
     

@@ -8,7 +8,6 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -27,8 +26,8 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 
-		int i = e.getX() / 50;
-		int j = e.getY() / 50;
+		int i = e.getX() / eleWidth;
+		int j = e.getY() / eleHeight;
 		
 		Icon icon = label.getIcon();
 		BufferedImage bi = new BufferedImage(icon.getIconWidth(),
