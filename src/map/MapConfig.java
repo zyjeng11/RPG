@@ -12,7 +12,7 @@ public interface MapConfig {
     
     String[] iconsName = {"grass", "tree"};
 	ImageIcon[] icons = new ImageIcon[2];
-	String relativePath = "/img/map.map";
+	String relativePath = "/img/map.map";		//relative path of the map file
 
 	static int[][] map1 = new int[20][20];
 	static int[][] map2 = new int[20][20];

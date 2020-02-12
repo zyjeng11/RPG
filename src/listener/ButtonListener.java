@@ -22,6 +22,7 @@ public class ButtonListener implements ActionListener, MapConfig{
 						dout.writeInt(map2[i][j]);
 					}
 				}
+				System.out.println("map saved");
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			} 			
