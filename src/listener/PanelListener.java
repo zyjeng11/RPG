@@ -1,9 +1,6 @@
 package listener;
 
 import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -27,23 +24,6 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 		this.label = label;
 	}
 	
-	static Image iconToImage(Icon icon) {
-        if (icon instanceof ImageIcon) {
-            return ((ImageIcon)icon).getImage();
-        } else {
-            int w = icon.getIconWidth();
-            int h = icon.getIconHeight();
-            GraphicsEnvironment ge =
-              GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice gd = ge.getDefaultScreenDevice();
-            GraphicsConfiguration gc = gd.getDefaultConfiguration();
-            BufferedImage image = gc.createCompatibleImage(w, h);
-            Graphics2D g = image.createGraphics();
-            icon.paintIcon(null, g, 0, 0);
-            g.dispose();
-            return image;
-        }
-    }
 	@Override
 	public void mouseClicked(MouseEvent e) {
 
@@ -52,10 +32,9 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 		
 		Icon icon = label.getIcon();
 		BufferedImage bi = new BufferedImage(icon.getIconWidth(),
-                icon.getIconHeight(),BufferedImage.TYPE_INT_RGB);
+		        icon.getIconHeight(),BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = bi.createGraphics();//draw into BufferedImage
-        icon.paintIcon(null, g, 0, 0);
-		//ImageIcon imgi = new ImageIcon((Image)bi);
+		icon.paintIcon(null, g, 0, 0);
 		ImageIcon ii = new ImageIcon((Image)bi);
 		
 		iconsMap1[i][j] = ii;
