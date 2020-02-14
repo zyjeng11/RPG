@@ -17,8 +17,8 @@ public interface MapConfig {
     		"ground_0", "ground_1", "ground_2"};    
     String[] iconsName_road = {"stone_road_1", "stone_road_2", "stone_road_3", "stone_road_4", "stone_road_5", "stone_road_6",
     		"stone_road_7", "stone_road_8", "stone_road_9"};    
-    String[] iconsName_corner = {"grass_corner_7", "grass_ground_verticle_0", "grass_ground_verticle_1",
-    		"ground_corner_9"};
+    String[] iconsName_corner = {"grass_ground_corner_7", "grass_ground_verticle_0", "grass_ground_verticle_1",
+    		"grass_ground_corner_9"};
     
 	ImageIcon[] icons_road = new ImageIcon[iconsName_road.length];
 	ImageIcon[] icons_ground = new ImageIcon[iconsName_ground.length];
