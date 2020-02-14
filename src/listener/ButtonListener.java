@@ -4,11 +4,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
+import javax.swing.JPanel;
 
 import map.MapConfig;
+import map.MapReader;
 
 public class ButtonListener implements ActionListener, MapConfig{
 
+	private JPanel panel;
+	
+	public ButtonListener(JPanel panel) {
+		this.panel = panel;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("save")) {
@@ -26,6 +34,9 @@ public class ButtonListener implements ActionListener, MapConfig{
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			} 			
+		}else if(e.getActionCommand().equals("load")){
+			new MapReader().readMap();
+			panel.repaint();
 		}
 	}
 	

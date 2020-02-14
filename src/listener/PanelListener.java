@@ -12,14 +12,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import map.MapConfig;
+import map.MapPanel;
 
 public class PanelListener extends MouseAdapter implements MapConfig {
 //save map data into array and show it on panel
-	
-	private JPanel panel;
+
+	private MapPanel panel;
 	private JLabel label;
 
-	public PanelListener(JPanel panel, JLabel label) {
+	public PanelListener(MapPanel panel, JLabel label) {
 		this.panel = panel;
 		this.label = label;
 	}
@@ -29,13 +30,12 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 
 		int i = e.getX() / eleWidth;
 		int j = e.getY() / eleHeight;
-		System.out.println(i + ", " + j);
-
-		if (label != null) {
+		
+		Icon icon = label.getIcon();		
+		if (icon == null) {
 			return;
 		}
 		
-		Icon icon = label.getIcon();
 		BufferedImage bi = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = bi.createGraphics();// draw into BufferedImage
 		icon.paintIcon(null, g, 0, 0);
@@ -95,5 +95,6 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 		}
 
 		panel.repaint();
+
 	}
 }
