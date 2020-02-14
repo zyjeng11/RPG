@@ -10,7 +10,7 @@ public class MapReader implements MapConfig {
 		
 		Map.setIcons();
 		
-// read map from file
+		// read map from file
 		String path = getClass().getResource(relativePath).getPath();
 		try (FileInputStream fin = new FileInputStream(path); DataInputStream din = new DataInputStream(fin);) {
 			for (int i = 0; i < map1.length; i++) {
@@ -27,14 +27,15 @@ public class MapReader implements MapConfig {
 		getIconsMap();
 	}
 
-
 	private void getIconsMap() {
-// turn map array to iconsMap array
+		// turn map array to iconsMap array
 		for (int i = 0; i < map1.length; i++) {
 			for (int j = 0; j < map1.length; j++) {
+				
+				
 				iconsMap1[i][j] = icons_ground[map1[i][j]];
 				iconsMap2[i][j] = icons_ground[map2[i][j]];
 			}
-		}
+		}		
 	}
 }

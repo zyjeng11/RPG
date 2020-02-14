@@ -27,7 +27,7 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-
+System.out.println("clicked");
 		int i = e.getX() / eleWidth;
 		int j = e.getY() / eleHeight;
 		
@@ -35,13 +35,14 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 		if (icon == null) {
 			return;
 		}
-		
+		System.out.println("icons get");	
 		BufferedImage bi = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = bi.createGraphics();// draw into BufferedImage
 		icon.paintIcon(null, g, 0, 0);
 		ImageIcon ii = new ImageIcon((Image) bi);
 
 		iconsMap1[i][j] = ii;
+		//convert icons to number
 		if (icon.toString().contains("grass_ground")) { // grass_ground 2
 			if (icon.toString().endsWith("verticle_0.jpg"))
 				map1[i][j] = 120;
@@ -72,9 +73,7 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 
 		} else if (icon.toString().contains("stone")) { // stone_road 3
 
-			if (icon.toString().endsWith("0.jpg"))
-				map1[i][j] = 130;
-			else if (icon.toString().endsWith("1.jpg"))
+			if (icon.toString().endsWith("1.jpg"))
 				map1[i][j] = 131;
 			else if (icon.toString().endsWith("2.jpg"))
 				map1[i][j] = 132;
@@ -95,6 +94,6 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 		}
 
 		panel.repaint();
-
+		
 	}
 }

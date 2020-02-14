@@ -8,6 +8,7 @@ public class MapPanel extends JPanel implements MapConfig{
 		
 	@Override
 	public void paint(Graphics g) {
+		System.out.println("repaint");
 		super.paint(g);	
 		for(int i=0; i<iconsMap1[0].length; i++) {
 			for(int j=0; j<iconsMap1.length; j++) {
