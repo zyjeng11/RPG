@@ -58,7 +58,7 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 		
 		int iconNumber = 100;
 		
-		if (icon.toString().contains("grass_ground")) { // grass_ground 2
+		if (icon.toString().contains("grass_ground")) { // grass-ground 2
 			iconNumber += 20;
 			if (icon.toString().endsWith("verticle_0.jpg"))
 				iconNumber += 0;
@@ -66,6 +66,8 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 				iconNumber += 1;
 			else if (icon.toString().endsWith("corner_7.jpg"))
 				iconNumber += 7;
+			else if (icon.toString().endsWith("corner_9.jpg"))
+				iconNumber += 9;
 
 		} else if (icon.toString().contains("grass")) { // grass 0
 			iconNumber += 0;

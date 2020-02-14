@@ -80,10 +80,7 @@ public class Map implements MapConfig {
 	}
 
 	public static void setIcons() {
-
-		for (int i = 0; i < 2; i++) {
-			icons_ground[i] = creatImageIcon("/img/" + iconsName_ground[i] + ".jpg");
-		}
+		
 		for (int i = 0; i < iconsName_ground.length; i++) {
 			icons_ground[i] = creatImageIcon("/img/" + iconsName_ground[i] + ".jpg");
 		}
