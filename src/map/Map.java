@@ -36,7 +36,7 @@ public class Map implements MapConfig {
 
 		setIcons();
 		label = new JLabel(icons_ground[0]);
-		
+
 		mapPanel = new JPanel();
 
 		// scroll pane
@@ -80,7 +80,7 @@ public class Map implements MapConfig {
 	}
 
 	public static void setIcons() {
-		
+		// load the image from file
 		for (int i = 0; i < iconsName_ground.length; i++) {
 			icons_ground[i] = creatImageIcon("/img/" + iconsName_ground[i] + ".jpg");
 		}
@@ -99,6 +99,7 @@ public class Map implements MapConfig {
 		groundBox = new JComboBox<ImageIcon>();
 		cornerBox = new JComboBox<ImageIcon>();
 		roadBox = new JComboBox<ImageIcon>();
+		JComboBox[] boxes = {groundBox, cornerBox, roadBox};
 
 		boxtype.addItem(1);
 		boxtype.addItem(2);
@@ -112,24 +113,20 @@ public class Map implements MapConfig {
 		for (int i = 0; i < iconsName_road.length; i++) {
 			roadBox.addItem(icons_road[i]);
 		}
-
-		groundBox.setMaximumSize(new Dimension(150, 150));
-		cornerBox.setMaximumSize(new Dimension(150, 150));
-		roadBox.setMaximumSize(new Dimension(150, 150));
-
-		ItemListener ilis = new BoxListener(label);
-		boxtype.addItemListener(ilis);
-		groundBox.addItemListener(ilis);
-		cornerBox.addItemListener(ilis);
-		roadBox.addItemListener(ilis);
-
+		
 		east.add(label);
-		east.add(Box.createRigidArea(new Dimension(0, 40)));
 		east.add(boxtype);
 		boxtype.setMaximumSize(new Dimension(50, 20));
+		for(JComboBox box: boxes) {
+			setComboBox(box, east);
+		}
+				
+	}
 
-		east.add(groundBox);
-		east.add(cornerBox);
-		east.add(roadBox);
+	private void setComboBox(JComboBox box, JPanel east) {
+
+		box.setMaximumSize(new Dimension(150, 150));
+		box.addItemListener(new BoxListener(label));
+		east.add(box);
 	}
 }

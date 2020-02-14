@@ -2,6 +2,7 @@ package map;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public interface MapConfig {
 		
@@ -16,7 +17,7 @@ public interface MapConfig {
     String[] iconsName_ground = {"grass_0", "grass_1", "grass_2", "grass_3", 
     		"ground_0", "ground_1", "ground_2"};    
     String[] iconsName_road = {"stone_road_1", "stone_road_2", "stone_road_3", "stone_road_4", "stone_road_5", "stone_road_6",
-    		"stone_road_7", "stone_road_8", "stone_road_9"};    
+    		"stone_road_7", "stone_road_8", "stone_road_9"};
     String[] iconsName_corner = {"grass_ground_corner_7", "grass_ground_verticle_0", "grass_ground_verticle_1",
     		"grass_ground_corner_9"};
     
@@ -31,4 +32,5 @@ public interface MapConfig {
 	
 	static ImageIcon[][] iconsMap1 = new ImageIcon[20][20];
 	static ImageIcon[][] iconsMap2 = new ImageIcon[20][20];
+	
 }
