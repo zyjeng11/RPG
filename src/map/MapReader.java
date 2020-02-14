@@ -8,7 +8,7 @@ public class MapReader implements MapConfig {
 
 	public void readMap() {
 		
-		setIcons();
+		Map.setIcons();
 		
 // read map from file
 		String path = getClass().getResource(relativePath).getPath();
@@ -27,21 +27,6 @@ public class MapReader implements MapConfig {
 		getIconsMap();
 	}
 
-	private void setIcons() {
-		
-		for (int i = 0; i < 2; i++) {
-			icons_ground[i] = Map.creatImageIcon("/img/" + iconsName_ground[i] + ".jpg");
-		}
-		for (int i = 0; i < iconsName_ground.length; i++) {
-			icons_ground[i] = Map.creatImageIcon("/img/" + iconsName_ground[i] + ".jpg");
-		}
-		for (int i = 0; i < iconsName_corner.length; i++) {
-			icons_corner[i] = Map.creatImageIcon("/img/" + iconsName_corner[i] + ".jpg");
-		}
-		for (int i = 0; i < iconsName_road.length; i++) {
-			icons_road[i] = Map.creatImageIcon("/img/" + iconsName_road[i] + ".jpg");
-		}
-	}
 
 	private void getIconsMap() {
 // turn map array to iconsMap array
