@@ -23,6 +23,7 @@ public class BoxListener implements ItemListener{
 				
 		ImageIcon selected = (ImageIcon)e.getItem();		
 		label.setIcon(selected);
+		label.repaint();
 	}
 	
 }
