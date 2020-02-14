@@ -35,6 +35,8 @@ public class MapPanel extends JPanel implements MapConfig{
 		//scroll pane		
 		JPanel centerPanel = new JPanel();
 		centerPanel.setPreferredSize(new Dimension(MapWidth, MapHeight));
+		//add listener
+		centerPanel.addMouseListener(new PanelListener(this, label));	
 		JScrollPane js = new JScrollPane(centerPanel);			
 		
 		this.setLayout(new BorderLayout());
@@ -52,9 +54,7 @@ public class MapPanel extends JPanel implements MapConfig{
 		save.setActionCommand("save");
 		save.addActionListener(new ButtonListener());
 		east.add(save);
-		
-		//add listener
-		js.addMouseListener(new PanelListener(this, label));	
+				
 	}
 
 	public static ImageIcon creatImageIcon(String path) {

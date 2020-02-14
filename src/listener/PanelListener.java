@@ -17,25 +17,29 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 
 	private JPanel panel;
 	private JLabel label;
-	
+
 	public PanelListener(JPanel panel, JLabel label) {
 		this.panel = panel;
 		this.label = label;
 	}
-	
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 
 		int i = e.getX() / eleWidth;
 		int j = e.getY() / eleHeight;
+		System.out.println(i + ", " + j);
+
+		if (label != null) {
+			return;
+		}
 		
 		Icon icon = label.getIcon();
-		BufferedImage bi = new BufferedImage(icon.getIconWidth(),
-		        icon.getIconHeight(),BufferedImage.TYPE_INT_RGB);
-		Graphics2D g = bi.createGraphics();//draw into BufferedImage
+		BufferedImage bi = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
+		Graphics2D g = bi.createGraphics();// draw into BufferedImage
 		icon.paintIcon(null, g, 0, 0);
-		ImageIcon ii = new ImageIcon((Image)bi);
-		
+		ImageIcon ii = new ImageIcon((Image) bi);
+
 		iconsMap1[i][j] = ii;
 		if (icon.toString().contains("grass_ground")) { // grass_ground 2
 			if (icon.toString().endsWith("verticle_0.jpg"))
@@ -87,7 +91,6 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 				map1[i][j] = 138;
 			else if (icon.toString().endsWith("9.jpg"))
 				map1[i][j] = 139;
-
 		}
 
 		panel.repaint();
