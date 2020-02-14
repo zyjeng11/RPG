@@ -54,6 +54,12 @@ public class MapPanel extends JPanel implements MapConfig{
 		save.setActionCommand("save");
 		save.addActionListener(new ButtonListener());
 		east.add(save);
+		
+		//add load button
+		JButton load = new JButton("load");
+		load.setActionCommand("load");
+		load.addActionListener(new ButtonListener());
+		east.add(load);
 				
 	}
 
