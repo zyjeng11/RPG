@@ -107,8 +107,6 @@ public class MapPanel extends JPanel implements MapConfig{
 		east.add(groundBox);
 		east.add(cornerBox);
 		east.add(roadBox);
-//		box.setMaximumSize(new Dimension(110, 180));
-//		box.setBorder(BorderFactory.createEmptyBorder(40, 0, 40, 0));
 	}
 	
 	

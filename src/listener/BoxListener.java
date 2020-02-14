@@ -10,6 +10,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
 public class BoxListener implements ItemListener{
+//show selected image on the label
 	
 	private JLabel label;
 	JComboBox[] boxes;

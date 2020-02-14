@@ -14,7 +14,8 @@ import javax.swing.JPanel;
 import map.MapConfig;
 
 public class PanelListener extends MouseAdapter implements MapConfig {
-
+//save map data into array and show it on panel
+	
 	private JPanel panel;
 	private JLabel label;
 
