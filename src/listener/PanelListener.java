@@ -27,7 +27,7 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-System.out.println("clicked");
+
 		int i = e.getX() / eleWidth;
 		int j = e.getY() / eleHeight;
 		
@@ -42,58 +42,73 @@ System.out.println("clicked");
 		ImageIcon ii = new ImageIcon((Image) bi);
 
 		iconsMap1[i][j] = ii;
+		
 		//convert icons to number
-		if (icon.toString().contains("grass_ground")) { // grass_ground 2
-			if (icon.toString().endsWith("verticle_0.jpg"))
-				map1[i][j] = 120;
-			else if (icon.toString().endsWith("verticle_1.jpg"))
-				map1[i][j] = 121;
-			else if (icon.toString().endsWith("corner_7.jpg"))
-				map1[i][j] = 122;
-
-		} else if (icon.toString().contains("grass")) { // grass 0
-
-			if (icon.toString().endsWith("0.jpg"))
-				map1[i][j] = 100;
-			else if (icon.toString().endsWith("1.jpg"))
-				map1[i][j] = 101;
-			else if (icon.toString().endsWith("2.jpg"))
-				map1[i][j] = 102;
-			else if (icon.toString().endsWith("3.jpg"))
-				map1[i][j] = 103;
-
-		} else if (icon.toString().contains("ground")) { // ground 1
-
-			if (icon.toString().endsWith("0.jpg"))
-				map1[i][j] = 110;
-			else if (icon.toString().endsWith("1.jpg"))
-				map1[i][j] = 111;
-			else if (icon.toString().endsWith("2.jpg"))
-				map1[i][j] = 112;
-
-		} else if (icon.toString().contains("stone")) { // stone_road 3
-
-			if (icon.toString().endsWith("1.jpg"))
-				map1[i][j] = 131;
-			else if (icon.toString().endsWith("2.jpg"))
-				map1[i][j] = 132;
-			else if (icon.toString().endsWith("3.jpg"))
-				map1[i][j] = 133;
-			else if (icon.toString().endsWith("4.jpg"))
-				map1[i][j] = 134;
-			else if (icon.toString().endsWith("5.jpg"))
-				map1[i][j] = 135;
-			else if (icon.toString().endsWith("6.jpg"))
-				map1[i][j] = 136;
-			else if (icon.toString().endsWith("7.jpg"))
-				map1[i][j] = 137;
-			else if (icon.toString().endsWith("8.jpg"))
-				map1[i][j] = 138;
-			else if (icon.toString().endsWith("9.jpg"))
-				map1[i][j] = 139;
-		}
-
+		int iconNum = iconToNumber(icon, i, j);
+		
+		//write map
+		if(iconNum < 200)
+			map1[i][j] = iconNum;
+		
 		panel.repaint();
 		
+	}
+	
+	private int iconToNumber(Icon icon, int i, int j) {
+		
+		int iconNumber = 100;
+		
+		if (icon.toString().contains("grass_ground")) { // grass_ground 2
+			iconNumber += 20;
+			if (icon.toString().endsWith("verticle_0.jpg"))
+				iconNumber += 0;
+			else if (icon.toString().endsWith("verticle_1.jpg"))
+				iconNumber += 1;
+			else if (icon.toString().endsWith("corner_7.jpg"))
+				iconNumber += 7;
+
+		} else if (icon.toString().contains("grass")) { // grass 0
+			iconNumber += 0;
+			if (icon.toString().endsWith("0.jpg"))
+				iconNumber += 0;
+			else if (icon.toString().endsWith("1.jpg"))
+				iconNumber += 1;
+			else if (icon.toString().endsWith("2.jpg"))
+				iconNumber += 2;
+			else if (icon.toString().endsWith("3.jpg"))
+				iconNumber += 3;
+
+		} else if (icon.toString().contains("ground")) { // ground 1
+			iconNumber += 10;
+			if (icon.toString().endsWith("0.jpg"))
+				iconNumber += 0;
+			else if (icon.toString().endsWith("1.jpg"))
+				iconNumber += 1;
+			else if (icon.toString().endsWith("2.jpg"))
+				iconNumber += 2;
+
+		} else if (icon.toString().contains("stone")) { // stone_road 3
+			iconNumber += 30;
+			if (icon.toString().endsWith("1.jpg"))
+				iconNumber += 1;
+			else if (icon.toString().endsWith("2.jpg"))
+				iconNumber += 2;
+			else if (icon.toString().endsWith("3.jpg"))
+				iconNumber += 3;
+			else if (icon.toString().endsWith("4.jpg"))
+				iconNumber += 4;
+			else if (icon.toString().endsWith("5.jpg"))
+				iconNumber += 5;
+			else if (icon.toString().endsWith("6.jpg"))
+				iconNumber += 6;
+			else if (icon.toString().endsWith("7.jpg"))
+				iconNumber += 7;
+			else if (icon.toString().endsWith("8.jpg"))
+				iconNumber += 8;
+			else if (icon.toString().endsWith("9.jpg"))
+				iconNumber += 9;
+		}
+		
+		return iconNumber;
 	}
 }
