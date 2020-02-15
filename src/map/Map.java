@@ -31,6 +31,7 @@ public class Map implements MapConfig {
 	JComboBox groundBox;
 	JComboBox cornerBox;
 	JComboBox roadBox;
+	JComboBox junctionBox;
 
 	public Map() {
 
@@ -90,6 +91,9 @@ public class Map implements MapConfig {
 		for (int i = 0; i < iconsName_road.length; i++) {
 			icons_road[i] = creatImageIcon("/img/" + iconsName_road[i] + ".jpg");
 		}
+		for (int i = 0; i < iconsName_junction.length; i++) {
+			icons_junction[i] = creatImageIcon("/img/" + iconsName_junction[i] + ".jpg");
+		}
 	}
 
 	// add combo box to the east panel
@@ -99,7 +103,8 @@ public class Map implements MapConfig {
 		groundBox = new JComboBox<ImageIcon>();
 		cornerBox = new JComboBox<ImageIcon>();
 		roadBox = new JComboBox<ImageIcon>();
-		JComboBox[] boxes = {groundBox, cornerBox, roadBox};
+		junctionBox = new JComboBox<ImageIcon>();
+		JComboBox[] boxes = {groundBox, cornerBox, roadBox, junctionBox};
 
 		boxtype.addItem(1);
 		boxtype.addItem(2);
@@ -107,11 +112,15 @@ public class Map implements MapConfig {
 		for (int i = 0; i < iconsName_ground.length; i++) {
 			groundBox.addItem(icons_ground[i]);
 		}
+		
+		for (int i = 0; i < iconsName_road.length; i++) {
+			roadBox.addItem(icons_road[i]);
+		}
 		for (int i = 0; i < iconsName_corner.length; i++) {
 			cornerBox.addItem(icons_corner[i]);
 		}
-		for (int i = 0; i < iconsName_road.length; i++) {
-			roadBox.addItem(icons_road[i]);
+		for (int i = 0; i < iconsName_junction.length; i++) {
+			junctionBox.addItem(icons_junction[i]);
 		}
 		
 		east.add(label);
@@ -125,7 +134,7 @@ public class Map implements MapConfig {
 
 	private void setComboBox(JComboBox box, JPanel east) {
 
-		box.setMaximumSize(new Dimension(150, 150));
+		box.setMaximumSize(new Dimension(70, 70));
 		box.addItemListener(new BoxListener(label));
 		east.add(box);
 	}

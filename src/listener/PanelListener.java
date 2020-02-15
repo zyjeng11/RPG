@@ -35,7 +35,7 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 		if (icon == null) {
 			return;
 		}
-		System.out.println("icons get");	
+		
 		BufferedImage bi = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = bi.createGraphics();// draw into BufferedImage
 		icon.paintIcon(null, g, 0, 0);
