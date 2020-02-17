@@ -1,8 +1,10 @@
-package map;
+package map_part;
 
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
+
+import map.MapConfig;
 
 public class MapPanel extends JPanel implements MapConfig{
 		

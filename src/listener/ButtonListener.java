@@ -4,20 +4,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
+import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import map.MapConfig;
 import map.MapReader;
+import map_part.ImageButton;
 
 public class ButtonListener implements ActionListener, MapConfig {
 
 	private JPanel panel;
 	private JLabel label;
+	private ImageButton button;
 
 	public ButtonListener(JPanel panel, JLabel label) {
 		this.panel = panel;
 		this.label = label;
+	}
+	
+	public ButtonListener(JPanel panel, JLabel label, ImageButton button) {
+		this.panel = panel;
+		this.label = label;
+		this.button = button;
 	}
 
 	@Override
@@ -47,7 +56,9 @@ public class ButtonListener implements ActionListener, MapConfig {
 		} 
 		// press an image button
 		else if(e.getActionCommand().equals("image")) {
-			
+			Icon icon = button.getIcon();
+			label.setIcon(icon);
+			label.repaint();
 		}		
 	}
 

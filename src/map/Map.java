@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.ItemListener;
 import javax.swing.*;
 import listener.*;
+import map_part.ImageButton;
+import map_part.MapPanel;
 
 public class Map implements MapConfig {
 
@@ -90,9 +92,9 @@ public class Map implements MapConfig {
 
 	private void addButtons(ImageIcon img) {
 		
-		JButton bt = new JButton(img);
+		ImageButton bt = new ImageButton(img);
 		bt.setActionCommand("image");
-		bt.addActionListener(new ButtonListener(null, label));
+		bt.addActionListener(new ButtonListener(null, label, bt));
 		east.add(bt);
 		
 	}
