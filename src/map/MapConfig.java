@@ -11,9 +11,7 @@ public interface MapConfig {
    
     int MapWidth = 2000;  
     int MapHeight= 2000; 
-    
-    String[] iconsType = {"ground", "road", "corner", "junction"};
-    
+
     String[] iconsName_ground = {"grass_0", "grass_1", "grass_2", "grass_3", 
     		"ground_0", "ground_1", "ground_2"};    
     String[] iconsName_road = {"stone_road_1", "stone_road_2", "stone_road_3", "stone_road_4", "stone_road_5", "stone_road_6",
@@ -30,6 +28,12 @@ public interface MapConfig {
 	ImageIcon[] icons_corner = new ImageIcon[iconsName_corner.length];
 	ImageIcon[] icons_junction = new ImageIcon[iconsName_junction.length];
 	ImageIcon[][] icons = {icons_road, icons_ground, icons_corner, icons_junction};
+	
+	ImageIcon[] l_icons_ground = new ImageIcon[iconsName_ground.length];
+	ImageIcon[] l_icons_road = new ImageIcon[iconsName_road.length];	
+	ImageIcon[] l_icons_corner = new ImageIcon[iconsName_corner.length];
+	ImageIcon[] l_icons_junction = new ImageIcon[iconsName_junction.length];
+	ImageIcon[][] l_icons = {l_icons_road, l_icons_ground, l_icons_corner, l_icons_junction};
 	
 	String relativePath = "/img/map.map";		//relative path of the map file
 

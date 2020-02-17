@@ -52,7 +52,7 @@ public class ButtonListener implements ActionListener, MapConfig {
 		} else if (e.getActionCommand().equals("load")) {
 			new MapReader().readMap();
 			panel.repaint();
-			System.out.println(iconsMap1[0][0]);
+			System.out.println("map loaded");
 		} 
 		// press an image button
 		else if(e.getActionCommand().equals("image")) {
