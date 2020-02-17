@@ -23,13 +23,13 @@ public interface MapConfig {
     		"grass_ground_3","grass_ground_4_0","grass_ground_4_1",
     		"grass_ground_5","grass_ground_6_0","grass_ground_6_1",
     		"grass_ground_7","grass_ground_8_0","grass_ground_8_1","grass_ground_9"};
-    String[][] iconsNames = {iconsName_ground, iconsName_road, iconsName_corner, iconsName_junction};
+	String[][] iconsNames = { iconsName_road,iconsName_ground, iconsName_corner, iconsName_junction};
     
     ImageIcon[] icons_ground = new ImageIcon[iconsName_ground.length];
 	ImageIcon[] icons_road = new ImageIcon[iconsName_road.length];	
 	ImageIcon[] icons_corner = new ImageIcon[iconsName_corner.length];
 	ImageIcon[] icons_junction = new ImageIcon[iconsName_junction.length];
-	ImageIcon[][] icons = {icons_ground, icons_road, icons_corner, icons_junction};
+	ImageIcon[][] icons = {icons_road, icons_ground, icons_corner, icons_junction};
 	
 	String relativePath = "/img/map.map";		//relative path of the map file
 

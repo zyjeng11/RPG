@@ -1,30 +1,14 @@
 package map;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ItemListener;
-
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
-import listener.BoxListener;
-import listener.ButtonListener;
-import listener.PanelListener;
+import javax.swing.*;
+import listener.*;
 
 public class Map implements MapConfig {
 
 	public static JPanel mapPanel;
+	JPanel east;
 	JLabel label;
 	MapPanel centerPanel;
 	JComboBox boxtype;
@@ -51,24 +35,31 @@ public class Map implements MapConfig {
 		mapPanel.setLayout(new BorderLayout());
 		mapPanel.setPreferredSize(new Dimension(1200, 700));
 		mapPanel.add(js, BorderLayout.CENTER);
-
-		// итн╙ combobox
-		JPanel east = new JPanel();
+		
+		
+		east = new JPanel();
 		mapPanel.add(east, BorderLayout.EAST);
-		east.setLayout(new BoxLayout(east, BoxLayout.PAGE_AXIS));
-		addCombobox(east);
+		east.setLayout(new GridLayout(12, 3));		
+        
+		for(ImageIcon[] ii: icons) {
+			for(ImageIcon i: ii) {
+				addButtons(i);
+			}
+		}
 
 		// add save button
 		JButton save = new JButton("save");
 		save.setActionCommand("save");
-		save.addActionListener(new ButtonListener(mapPanel));
+		save.addActionListener(new ButtonListener(mapPanel, null));
 		east.add(save);
 
 		// add load button
 		JButton load = new JButton("load");
 		load.setActionCommand("load");
-		load.addActionListener(new ButtonListener(centerPanel));
+		load.addActionListener(new ButtonListener(centerPanel, null));
 		east.add(load);
+		
+		east.add(label);
 
 	}
 
@@ -82,6 +73,7 @@ public class Map implements MapConfig {
 
 	public static void setIcons() {
 		// load the image from file
+		
 		for (int i = 0; i < iconsName_ground.length; i++) {
 			icons_ground[i] = creatImageIcon("/img/" + iconsName_ground[i] + ".jpg");
 		}
@@ -96,6 +88,15 @@ public class Map implements MapConfig {
 		}
 	}
 
+	private void addButtons(ImageIcon img) {
+		
+		JButton bt = new JButton(img);
+		bt.setActionCommand("image");
+		bt.addActionListener(new ButtonListener(null, label));
+		east.add(bt);
+		
+	}
+	
 	// add combo box to the east panel
 	private void addCombobox(JPanel east) {
 
