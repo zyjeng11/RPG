@@ -34,7 +34,7 @@ public class ButtonListener implements ActionListener, MapConfig {
 		
 		// method that save the map into the file
 		if (e.getActionCommand().equals("save")) {
-			String path = MapConfig.class.getResource(relativePath).getPath();
+			String path = MapConfig.class.getResource(mapPath).getPath();
 			try (FileOutputStream fout = new FileOutputStream(path);
 					DataOutputStream dout = new DataOutputStream(fout);) {
 				for (int i = 0; i < map1[0].length; i++) {

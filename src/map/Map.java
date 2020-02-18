@@ -16,8 +16,10 @@ public class Map implements MapConfig {
 
 	public Map() {
 
-		MapReader.setIcons();
-		label = new JLabel(icons_ground[0]);
+		if(smallImgIcons.isEmpty())
+			MapReader.setSmallIcons();
+		
+		label = new JLabel(smallImgIcons.get(0));
 
 		mapPanel = new JPanel();
 
@@ -32,16 +34,15 @@ public class Map implements MapConfig {
 		mapPanel.setLayout(new BorderLayout());
 		mapPanel.setPreferredSize(new Dimension(1200, 700));
 		mapPanel.add(js, BorderLayout.CENTER);
-		
-		
+
 		east = new JPanel();
 		mapPanel.add(east, BorderLayout.EAST);
-		east.setLayout(new GridLayout(12, 3));		
-        
-		for(ImageIcon[] ii: icons) {
-			for(ImageIcon i: ii) {
-				addButtons(i);
-			}
+		east.setLayout(new GridLayout(12, 3));
+
+//		for (ImageIcon i : smallImgIcons)
+//			addButtons(i);		
+		for(int i=0; i<smallImgIcons.size(); i++) {
+			addButtons(smallImgIcons.get(i));
 		}
 
 		// add save button
@@ -55,18 +56,18 @@ public class Map implements MapConfig {
 		load.setActionCommand("load");
 		load.addActionListener(new ButtonListener(centerPanel, null));
 		east.add(load);
-		
+
 		east.add(label);
 
 	}
 
 	private void addButtons(ImageIcon img) {
-		
+
 		ImageButton bt = new ImageButton(img);
 		bt.setActionCommand("image");
 		bt.addActionListener(new ButtonListener(null, label, bt));
 		east.add(bt);
-		
+
 	}
 
 }
