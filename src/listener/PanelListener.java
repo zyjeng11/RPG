@@ -5,11 +5,12 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import map.MapConfig;
 import map_part.MapPanel;
@@ -30,117 +31,39 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 
 		int i = e.getX() / eleWidth;
 		int j = e.getY() / eleHeight;
-		
-		Icon icon = label.getIcon();		
+
+		Icon icon = label.getIcon();
 		if (icon == null) {
 			return;
 		}
-		
+		System.out.println(icon);
+
+		// convert icons to number
+
+		int iconNum = getKey(numberAndImage, icon);
+
 		BufferedImage bi = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = bi.createGraphics();// draw into BufferedImage
 		icon.paintIcon(null, g, 0, 0);
 		ImageIcon ii = new ImageIcon((Image) bi);
 
 		iconsMap1[i][j] = ii;
-		
-		//convert icons to number
-		int iconNum = iconToNumber(icon, i, j);
-		
-		//write map
-		if(iconNum < 200)
+
+		// write map
+		if (iconNum < 200)
 			map1[i][j] = iconNum;
-		
+
 		panel.repaint();
-		
+
 	}
-	
-	private int iconToNumber(Icon icon, int i, int j) {
-		
-		int iconNumber = 100;
-		
-		if (icon.toString().contains("ground_grass")) { // ground-grass 2
-			iconNumber += 20;
-			if (icon.toString().endsWith("1.jpg"))
-				iconNumber += 1;
-			else if (icon.toString().endsWith("2.jpg"))
-				iconNumber += 2;
-			else if (icon.toString().endsWith("3.jpg"))
-				iconNumber += 3;
-			else if (icon.toString().endsWith("4.jpg"))
-				iconNumber += 4;
-			else if (icon.toString().endsWith("6.jpg"))
-				iconNumber += 6;			
-			else if (icon.toString().endsWith("7.jpg"))
-				iconNumber += 7;
-			else if (icon.toString().endsWith("8.jpg"))
-				iconNumber += 8;
-			else if (icon.toString().endsWith("9.jpg"))
-				iconNumber += 9;
 
-		}else if (icon.toString().contains("grass_ground")) { // grass-ground 3
-			
-			iconNumber += 30;			
-			if (icon.toString().endsWith("1.jpg"))
-				iconNumber += 1;
-			else if (icon.toString().endsWith("2.jpg"))
-				iconNumber += 2;
-			else if (icon.toString().endsWith("3.jpg"))
-				iconNumber += 3;
-			else if (icon.toString().endsWith("4.jpg"))
-				iconNumber += 4;
-			else if (icon.toString().endsWith("5.jpg"))
-				iconNumber += 5;
-			else if (icon.toString().endsWith("6.jpg"))
-				iconNumber += 6;			
-			else if (icon.toString().endsWith("7.jpg"))
-				iconNumber += 7;
-			else if (icon.toString().endsWith("8.jpg"))
-				iconNumber += 8;
-			else if (icon.toString().endsWith("9.jpg"))
-				iconNumber += 9;
-
-		}  else if (icon.toString().contains("grass")) { // grass 0
-			iconNumber += 0;
-			if (icon.toString().endsWith("0.jpg"))
-				iconNumber += 0;
-			else if (icon.toString().endsWith("1.jpg"))
-				iconNumber += 1;
-			else if (icon.toString().endsWith("2.jpg"))
-				iconNumber += 2;
-			else if (icon.toString().endsWith("3.jpg"))
-				iconNumber += 3;
-
-		} else if (icon.toString().contains("ground")) { // ground 1
-			iconNumber += 10;
-			if (icon.toString().endsWith("0.jpg"))
-				iconNumber += 0;
-			else if (icon.toString().endsWith("1.jpg"))
-				iconNumber += 1;
-			else if (icon.toString().endsWith("2.jpg"))
-				iconNumber += 2;
-
-		} else if (icon.toString().contains("stone")) { // stone_road 3
-			iconNumber += 40;
-			if (icon.toString().endsWith("1.jpg"))
-				iconNumber += 1;
-			else if (icon.toString().endsWith("2.jpg"))
-				iconNumber += 2;
-			else if (icon.toString().endsWith("3.jpg"))
-				iconNumber += 3;
-			else if (icon.toString().endsWith("4.jpg"))
-				iconNumber += 4;
-			else if (icon.toString().endsWith("5.jpg"))
-				iconNumber += 5;
-			else if (icon.toString().endsWith("6.jpg"))
-				iconNumber += 6;
-			else if (icon.toString().endsWith("7.jpg"))
-				iconNumber += 7;
-			else if (icon.toString().endsWith("8.jpg"))
-				iconNumber += 8;
-			else if (icon.toString().endsWith("9.jpg"))
-				iconNumber += 9;
+	public <K, V> K getKey(Map<K, V> map, V value) {
+		for (Entry<K, V> entry : map.entrySet()) {
+			if (entry.getValue().equals(value)) {
+				return entry.getKey();
+			}
 		}
-		
-		return iconNumber;
+		return null;
 	}
+
 }

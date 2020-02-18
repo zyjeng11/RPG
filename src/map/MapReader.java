@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class MapReader implements MapConfig {
@@ -32,9 +33,8 @@ public class MapReader implements MapConfig {
 
 		//fill iconsMap array base on map array
 		for (int i = 0; i < map1.length; i++) {
-			for (int j = 0; j < map1.length; j++) {
-								
-				ImageIcon ii = numberAndImage.get(map1[i][j]);
+			for (int j = 0; j < map1.length; j++) {								
+				Icon ii = numberAndImage.get(map1[i][j]);				
 				if (ii != null)
 					iconsMap1[i][j] = ii;
 			}

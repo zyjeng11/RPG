@@ -21,14 +21,17 @@ public interface MapConfig {
     List<String> imgNames = FileName.getFileName(imgPath);
     List<ImageIcon> smallImgIcons = new ArrayList<>();
     List<ImageIcon> largeImgIcons = new ArrayList<>();
-    HashMap<Integer, ImageIcon> numberAndImage = MapReader.createHashMap();
+    HashMap<Integer, Icon> numberAndImage = MapReader.createHashMap();
 	
 	String mapPath = "/img/map.map";		//relative path of the map file
 
 	static int[][] map1 = new int[20][20];
 	static int[][] map2 = new int[20][20];
 	
-	static ImageIcon[][] iconsMap1 = new ImageIcon[20][20];
-	static ImageIcon[][] iconsMap2 = new ImageIcon[20][20];
+//	static ImageIcon[][] iconsMap1 = new ImageIcon[20][20];
+//	static ImageIcon[][] iconsMap2 = new ImageIcon[20][20];
+	
+	static Icon[][] iconsMap1 = new ImageIcon[20][20];
+	static Icon[][] iconsMap2 = new ImageIcon[20][20];
 	
 }
