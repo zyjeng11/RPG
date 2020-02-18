@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+
 import test.FileName;
 
 public interface MapConfig {

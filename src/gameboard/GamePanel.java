@@ -1,9 +1,14 @@
 package gameboard;
 
-import java.awt.*;
-import java.io.*;
-import javax.swing.*;
-import map.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import map.MapConfig;
+import map.MapReader;
 
 public class GamePanel extends JPanel implements MapConfig {
 

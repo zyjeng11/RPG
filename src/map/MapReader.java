@@ -3,9 +3,7 @@ package map;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;

@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import map.MapConfig;
-import map.MapReader;
 
 public class MapPanel extends JPanel implements MapConfig{
 		
