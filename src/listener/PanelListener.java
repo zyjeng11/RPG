@@ -36,7 +36,6 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 		if (icon == null) {
 			return;
 		}
-		System.out.println(icon);
 
 		// convert icons to number
 
@@ -47,7 +46,7 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 		icon.paintIcon(null, g, 0, 0);
 		ImageIcon ii = new ImageIcon((Image) bi);
 
-		iconsMap1[i][j] = ii;
+		smallIconsMap1[i][j] = ii;
 
 		// write map
 		if (iconNum < 200)

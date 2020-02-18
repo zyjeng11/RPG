@@ -5,24 +5,24 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import map.MapConfig;
+import map.MapReader;
 
 public class MapPanel extends JPanel implements MapConfig{
 		
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);	
-		for(int i=0; i<iconsMap1[0].length; i++) {
-			for(int j=0; j<iconsMap1.length; j++) {
-				if(iconsMap1[i][j] != null)
-					iconsMap1[i][j].paintIcon(null, g, i*eleWidth, j*eleHeight);
-					//g.drawImage(iconsMap1[i][j].getImage(), i*eleWidth, j*eleHeight, eleWidth, eleHeight, null);
+		
+		for(int i=0; i<smallIconsMap1[0].length; i++) {
+			for(int j=0; j<smallIconsMap1.length; j++) {
+				if(smallIconsMap1[i][j] != null)
+					smallIconsMap1[i][j].paintIcon(null, g, i*eleWidth, j*eleHeight);
 			}
 		}
-		for(int i=0; i<iconsMap2[0].length; i++) {
-			for(int j=0; j<iconsMap2.length; j++) {
-				if(iconsMap2[i][j] != null)
-					iconsMap1[i][j].paintIcon(null, g, i*eleWidth, j*eleHeight);
-					//g.drawImage(iconsMap2[i][j].getImage(), i*eleWidth, j*eleHeight, eleWidth, eleHeight, null);
+		for(int i=0; i<smallIconsMap2[0].length; i++) {
+			for(int j=0; j<smallIconsMap2.length; j++) {
+				if(smallIconsMap2[i][j] != null)
+					smallIconsMap1[i][j].paintIcon(null, g, i*eleWidth, j*eleHeight);
 			}
 		}
 	}

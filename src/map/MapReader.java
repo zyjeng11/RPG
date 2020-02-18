@@ -16,6 +16,8 @@ public class MapReader implements MapConfig {
 
 		if(smallImgIcons.isEmpty())
 			setSmallIcons();
+		if(largeImgIcons.isEmpty())
+			setLargeIcons();
 
 		// read map from file
 		String path = getClass().getResource(mapPath).getPath();
@@ -31,12 +33,12 @@ public class MapReader implements MapConfig {
 			ex.printStackTrace();
 		}
 
-		//fill iconsMap array base on map array
+		//fill smallIconsMap array base on map array
 		for (int i = 0; i < map1.length; i++) {
 			for (int j = 0; j < map1.length; j++) {								
 				Icon ii = numberAndImage.get(map1[i][j]);				
 				if (ii != null)
-					iconsMap1[i][j] = ii;
+					smallIconsMap1[i][j] = ii;
 			}
 		}
 	}
@@ -55,7 +57,8 @@ public class MapReader implements MapConfig {
 		return numberAndImage;
 	}	
 
-	private void setLargeIcons() {
+	public static void setLargeIcons() {
+		System.out.println("setLargeIcons");
 		for (int i = 0; i < imgNames.size(); i++) {
 			largeImgIcons.add(creatImageIcon("/img/100/" + imgNames.get(i)));
 		}

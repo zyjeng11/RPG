@@ -11,8 +11,8 @@ import test.FileName;
 
 public interface MapConfig {
 		
-    int eleWidth = 100;  
-    int eleHeight = 100; 
+    int eleWidth = 50;  
+    int eleHeight = 50; 
    
     int MapWidth = 2000;  
     int MapHeight= 2000; 
@@ -28,10 +28,9 @@ public interface MapConfig {
 	static int[][] map1 = new int[20][20];
 	static int[][] map2 = new int[20][20];
 	
-//	static ImageIcon[][] iconsMap1 = new ImageIcon[20][20];
-//	static ImageIcon[][] iconsMap2 = new ImageIcon[20][20];
+	static Icon[][] smallIconsMap1 = new ImageIcon[20][20];
+	static Icon[][] smallIconsMap2 = new ImageIcon[20][20];
 	
-	static Icon[][] iconsMap1 = new ImageIcon[20][20];
-	static Icon[][] iconsMap2 = new ImageIcon[20][20];
-	
+	static Icon[][] largeIconsMap1 = new ImageIcon[20][20];
+	static Icon[][] largeIconsMap2 = new ImageIcon[20][20];
 }
