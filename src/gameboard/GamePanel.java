@@ -10,7 +10,7 @@ import javax.swing.JScrollPane;
 import map.MapConfig;
 import map.MapReader;
 
-public class GamePanel extends JPanel implements MapConfig, Runnable {
+public class GamePanel extends JPanel implements MapConfig, Runnable {		
 	
 	public GamePanel() {
 		
@@ -27,8 +27,9 @@ public class GamePanel extends JPanel implements MapConfig, Runnable {
 
 	@Override
 	public void paint(Graphics g) {
-		System.out.println("paint");
+		
 		super.paint(g);
+		System.out.println("paint");
 		if(largeImgIcons.isEmpty())
 			MapReader.setIcons();
 		
@@ -49,13 +50,12 @@ public class GamePanel extends JPanel implements MapConfig, Runnable {
 	@Override
 	public void run() {
 		while(true) {
+			repaint();
 			try {
 				Thread.sleep(20);
 			}catch(InterruptedException e) {
 				e.printStackTrace();
-			}
-			this.repaint();
+			}			
 		}
-	}
-		
+	}	
 }

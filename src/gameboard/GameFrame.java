@@ -1,6 +1,7 @@
 package gameboard;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import things.Player;
@@ -20,12 +21,13 @@ public class GameFrame {
 	private void showGUI() {
 		//init game frame
 		JFrame frame = new JFrame("Game board");
-		frame.add(new GamePanel());
+		JPanel gamePanel = new GamePanel();
+		frame.add(gamePanel);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		
-		Thread panelThread = new Thread(new GamePanel());
+		Thread panelThread = new Thread((Runnable) gamePanel);
 		Thread playerThread = new Thread(new Player());
 		panelThread.start();
 		playerThread.start();
