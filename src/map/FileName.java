@@ -1,9 +1,7 @@
-package test;
+package map;
 
 import java.io.File;
 import java.util.*;
-
-import map.MapConfig;
 
 public class FileName{
 

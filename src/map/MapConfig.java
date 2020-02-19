@@ -7,8 +7,6 @@ import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import test.FileName;
-
 public interface MapConfig {
 	
 	//element size in map editor
