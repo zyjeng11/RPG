@@ -17,7 +17,7 @@ public class Map implements MapConfig {
 	public Map() {
 
 		if(smallImgIcons.isEmpty())
-			MapReader.setSmallIcons();
+			MapReader.setIcons();
 		
 		label = new JLabel(smallImgIcons.get(0));
 
@@ -61,9 +61,9 @@ public class Map implements MapConfig {
 
 	}
 
-	private void addButtons(ImageIcon img) {
+	private void addButtons(Icon icon) {
 
-		ImageButton bt = new ImageButton(img);
+		ImageButton bt = new ImageButton(icon);
 		bt.setActionCommand("image");
 		bt.addActionListener(new ButtonListener(null, label, bt));
 		east.add(bt);

@@ -10,8 +10,8 @@ import javax.swing.JScrollPane;
 import map.MapConfig;
 import map.MapReader;
 
-public class GamePanel extends JPanel implements MapConfig {
-
+public class GamePanel extends JPanel implements MapConfig, Runnable {
+	
 	public GamePanel() {
 		
 		JPanel centerPanel = new JPanel();
@@ -27,18 +27,34 @@ public class GamePanel extends JPanel implements MapConfig {
 
 	@Override
 	public void paint(Graphics g) {
+		System.out.println("paint");
 		super.paint(g);
-		for (int i = 0; i < smallIconsMap1[0].length; i++) {
-			for (int j = 0; j < smallIconsMap1.length; j++) {
-				if (smallIconsMap1[i][j] != null)
-					smallIconsMap1[i][j].paintIcon(null, g, i*eleWidth, j*eleHeight);
+		if(largeImgIcons.isEmpty())
+			MapReader.setIcons();
+		
+		for (int i = 0; i < largeIconsMap1[0].length; i++) {
+			for (int j = 0; j < largeIconsMap1.length; j++) {
+				if (largeIconsMap1[i][j] != null)
+					largeIconsMap1[i][j].paintIcon(null, g, i*gameEleWidth, j*gameEleHeight);
 			}
 		}
-		for (int i = 0; i < smallIconsMap2[0].length; i++) {
-			for (int j = 0; j < smallIconsMap2.length; j++) {
-				if (smallIconsMap2[i][j] != null)
-					smallIconsMap2[i][j].paintIcon(null, g, i*eleWidth, j*eleHeight);
+		for (int i = 0; i < largeIconsMap2[0].length; i++) {
+			for (int j = 0; j < largeIconsMap2.length; j++) {
+				if (largeIconsMap2[i][j] != null)
+					largeIconsMap2[i][j].paintIcon(null, g, i*gameEleWidth, j*gameEleHeight);
 			}
+		}
+	}
+
+	@Override
+	public void run() {
+		while(true) {
+			try {
+				Thread.sleep(20);
+			}catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+			this.repaint();
 		}
 	}
 		

@@ -29,8 +29,8 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 
-		int i = e.getX() / eleWidth;
-		int j = e.getY() / eleHeight;
+		int i = e.getX() / mapEleWidth;
+		int j = e.getY() / mapEleHeight;
 
 		Icon icon = label.getIcon();
 		if (icon == null) {
@@ -39,7 +39,7 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 
 		// convert icons to number
 
-		int iconNum = getKey(numberAndImage, icon);
+		int iconNum = getKey(numberAndSmallImage, icon);
 
 		BufferedImage bi = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = bi.createGraphics();// draw into BufferedImage
