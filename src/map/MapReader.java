@@ -9,7 +9,9 @@ import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-public class MapReader implements MapConfig {
+import gameboard.GameConfig;
+
+public class MapReader implements MapConfig, GameConfig {
 
 	public void readMap() {
 

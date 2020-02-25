@@ -1,8 +1,11 @@
 package things;
 
-public class Player implements Runnable{
+import gameboard.GameConfig;
 
-	
+public class Player implements Runnable, GameConfig{
+
+	static int x = boardWidth/2;
+	static int y = boardHeight/2;
 	
 	@Override
 	public void run() {
