@@ -21,7 +21,7 @@ public class GameFrame {
 	private void showGUI() {
 		//init game frame
 		JFrame frame = new JFrame("Game board");
-		JPanel gamePanel = new GamePanel();
+		JPanel gamePanel = new GamePanel(new Player());
 		frame.add(gamePanel);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
