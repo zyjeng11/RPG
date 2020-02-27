@@ -39,10 +39,11 @@ public class GamePanel extends JPanel implements GameConfig, Runnable {
 		if (largeImgIcons.isEmpty())
 			MapReader.setIcons();
 
+		System.out.println(player.mx + ", " + player.my);
 		for (int i = 0; i < largeIconsMap1[0].length; i++) {
 			for (int j = 0; j < largeIconsMap1.length; j++) {
 				if (largeIconsMap1[i][j] != null)
-					largeIconsMap1[i][j].paintIcon(null, g, i * eleWidth, j * eleHeight);
+					largeIconsMap1[i][j].paintIcon(null, g, i*eleWidth - player.mx, j * eleHeight - player.my);
 			}
 		}
 		for (int i = 0; i < largeIconsMap2[0].length; i++) {
