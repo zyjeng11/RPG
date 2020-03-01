@@ -21,9 +21,6 @@ public interface GameConfig {
     int boardWidth = 1200;
     int boardHeight = 700;
     
-    List<Icon> largeImgIcons = new ArrayList<>();
-    HashMap<Integer, Icon> numberAndLargeImage = MapReader.createHashMap(largeImgIcons);
-    
 	static Icon[][] largeIconsMap1 = new ImageIcon[40][40];
 	static Icon[][] largeIconsMap2 = new ImageIcon[40][40];
 }

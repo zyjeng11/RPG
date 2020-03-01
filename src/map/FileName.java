@@ -1,18 +1,22 @@
 package map;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class FileName{
+public class FileName {
 
 	public static void main(String[] args) {
-		List<String> s = new FileName().getFileName("/img/100");
-		System.out.println(s);
+		String imgPath = "/img/50/";
+		List<String> imgNames = FileName.getFileName(imgPath);
+		System.out.println(imgNames);
 	}
-	
+
 	public static List<String> getFileName(String imgPath) {
-		
-		ArrayList<String> imgNames = new ArrayList<>();
+
+		System.out.println("getfilename");
+
+		List<String> imgNames = new ArrayList<>();
 		String path = FileName.class.getResource(imgPath).getPath();
 		File dir = new File(path);
 		File[] directoryListing = dir.listFiles();
@@ -23,8 +27,9 @@ public class FileName{
 		} else {
 			System.out.println("path not exist");
 		}
-		
+
+		System.out.println(imgNames);
+
 		return imgNames;
 	}
-
 }

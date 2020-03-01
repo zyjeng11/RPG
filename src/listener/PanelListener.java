@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -20,10 +21,12 @@ public class PanelListener extends MouseAdapter implements MapConfig {
 
 	private MapPanel panel;
 	private JLabel label;
+	HashMap<Integer, Icon> numberAndSmallImage;
 
-	public PanelListener(MapPanel panel, JLabel label) {
+	public PanelListener(MapPanel panel, JLabel label, HashMap<Integer, Icon> numberAndSmallImage) {
 		this.panel = panel;
 		this.label = label;
+		this.numberAndSmallImage = numberAndSmallImage;
 	}
 
 	@Override

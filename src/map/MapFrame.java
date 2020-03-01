@@ -1,8 +1,7 @@
 package map;
 
-import java.awt.*;
-import javax.swing.*;
-
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 public class MapFrame implements MapConfig{
 		
 	static JFrame frame;
@@ -10,16 +9,16 @@ public class MapFrame implements MapConfig{
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				new MapFrame().showGUI();
+				showGUI();
 			}
 		});
 	}
 
-	private void showGUI() {
+	private static void showGUI() {
 		
 		frame = new JFrame("Map editor");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(new Map().mapPanel);			
+		frame.add(new Map(new MapReader()).mainPanel);			
 		frame.pack();
 
 		frame.setVisible(true);

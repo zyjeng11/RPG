@@ -3,6 +3,7 @@ package map;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,10 +14,20 @@ import gameboard.GameConfig;
 
 public class MapReader implements MapConfig, GameConfig {
 
-	public void readMap() {
+	List<String> imgNames;
+	List<Icon> smallImgIcons = new ArrayList<>();
+	List<Icon> largeImgIcons = new ArrayList<>();
+	HashMap<Integer, Icon> numberAndSmallImage;
+	HashMap<Integer, Icon> numberAndLargeImage;
 
-		if(smallImgIcons.isEmpty() || largeImgIcons.isEmpty())
-			setIcons();		
+	public MapReader() {
+		imgNames = FileName.getFileName(imgPath);
+		setIcons();
+		numberAndSmallImage = createHashMap(smallImgIcons);
+		numberAndLargeImage = createHashMap(largeImgIcons);
+	}
+
+	public void readMap() {
 
 		// read map from file
 		String path = getClass().getResource(mapPath).getPath();
@@ -32,22 +43,20 @@ public class MapReader implements MapConfig, GameConfig {
 			ex.printStackTrace();
 		}
 
-		//fill small/large IconsMap array base on map array
+		// fill small/large IconsMap array base on map array
 		for (int i = 0; i < map1.length; i++) {
-			for (int j = 0; j < map1.length; j++) {								
-				Icon si = numberAndSmallImage.get(map1[i][j]);				
+			for (int j = 0; j < map1.length; j++) {
+				Icon si = numberAndSmallImage.get(map1[i][j]);
 				if (si != null)
 					smallIconsMap1[i][j] = si;
-				Icon li = numberAndLargeImage.get(map1[i][j]);				
+				Icon li = numberAndLargeImage.get(map1[i][j]);
 				if (li != null)
 					largeIconsMap1[i][j] = li;
 			}
 		}
 	}
-	
-	public static void readGameMap() {
-		if(largeImgIcons.isEmpty())
-			setIcons();		
+
+	public void readGameMap() {
 
 		// read map from file
 		String path = MapReader.class.getResource(mapPath).getPath();
@@ -63,29 +72,25 @@ public class MapReader implements MapConfig, GameConfig {
 			ex.printStackTrace();
 		}
 
-		//fill largeIconsMap array base on map array
+		// fill largeIconsMap array base on map array
 		for (int i = 0; i < map1.length; i++) {
-			for (int j = 0; j < map1.length; j++) {								
-				Icon ii = numberAndLargeImage.get(map1[i][j]);				
+			for (int j = 0; j < map1.length; j++) {
+				Icon ii = numberAndLargeImage.get(map1[i][j]);
 				if (ii != null)
 					largeIconsMap1[i][j] = ii;
 			}
 		}
 	}
 
-	public static HashMap<Integer, Icon> createHashMap(List<Icon> ImgIcons) {
-		
-		if(ImgIcons.isEmpty()) {
-			setIcons();
-		}
-		
+	public HashMap<Integer, Icon> createHashMap(List<Icon> imgIcons) {
+
 		HashMap<Integer, Icon> numberAndImage = new HashMap<>();
-		for(int i=0; i<imgNames.size(); i++) {
-			numberAndImage.put(i, ImgIcons.get(i));
+		for (int i = 0; i < imgNames.size(); i++) {
+			numberAndImage.put(i, imgIcons.get(i));
 		}
-		
+
 		return numberAndImage;
-	}	
+	}
 
 	public static ImageIcon creatImageIcon(String path) {
 		java.net.URL imgURL = MapReader.class.getResource(path);
@@ -97,9 +102,8 @@ public class MapReader implements MapConfig, GameConfig {
 		}
 	}
 
-	public static void setIcons() {
+	public void setIcons() {
 		// load the image from file
-		System.out.println("setIcons");
 		for (int i = 0; i < imgNames.size(); i++) {
 			smallImgIcons.add(creatImageIcon("/img/50/" + imgNames.get(i)));
 			largeImgIcons.add(creatImageIcon("/img/100/" + imgNames.get(i)));
