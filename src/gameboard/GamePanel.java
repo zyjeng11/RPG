@@ -13,22 +13,22 @@ import things.Player;
 public class GamePanel extends JPanel implements GameConfig, Runnable {
 
 	Player player;
-	
+
 	public GamePanel(Player player) {
-		
+
 		this.player = player;
 
-		//JPanel setting
+		// JPanel setting
 		this.setLayout(new BorderLayout());
 		this.setPreferredSize(new Dimension(1200, 700));
 		this.setFocusable(true);
 		this.addKeyListener(new KeyInput(player));
-		
+
 		JPanel centerPanel = new JPanel();
 		centerPanel.setPreferredSize(new Dimension(mapWidth, mapHeight));
-		
+
 		this.add(centerPanel, BorderLayout.CENTER);
-		
+
 		new MapReader().readMap();
 	}
 
@@ -37,11 +37,11 @@ public class GamePanel extends JPanel implements GameConfig, Runnable {
 
 		super.paint(g);
 
-		System.out.println(player.mx + ", " + player.my);
+		System.out.println(player.mx + ", " + player.bx + ", " + player.my + ", " + player.by);
 		for (int i = 0; i < largeIconsMap1[0].length; i++) {
 			for (int j = 0; j < largeIconsMap1.length; j++) {
 				if (largeIconsMap1[i][j] != null)
-					largeIconsMap1[i][j].paintIcon(null, g, i*eleWidth - player.mx, j * eleHeight - player.my);
+					largeIconsMap1[i][j].paintIcon(null, g, i * eleWidth - player.mx, j * eleHeight - player.my);
 			}
 		}
 		for (int i = 0; i < largeIconsMap2[0].length; i++) {
@@ -50,9 +50,9 @@ public class GamePanel extends JPanel implements GameConfig, Runnable {
 					largeIconsMap2[i][j].paintIcon(null, g, i * eleWidth, j * eleHeight);
 			}
 		}
-		
-		//draw player icon
-		player.icon.paintIcon(this, g, player.bx, player.by);		
+
+		// draw player icon
+		player.icon.paintIcon(this, g, player.bx, player.by);
 	}
 
 	@Override

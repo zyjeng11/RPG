@@ -14,8 +14,6 @@ public class FileName {
 
 	public static List<String> getFileName(String imgPath) {
 
-		System.out.println("getfilename");
-
 		List<String> imgNames = new ArrayList<>();
 		String path = FileName.class.getResource(imgPath).getPath();
 		File dir = new File(path);
@@ -27,8 +25,6 @@ public class FileName {
 		} else {
 			System.out.println("path not exist");
 		}
-
-		System.out.println(imgNames);
 
 		return imgNames;
 	}

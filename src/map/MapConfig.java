@@ -18,8 +18,6 @@ public interface MapConfig {
 	int MapHeight = 2000;
 
 	String imgPath = "/img/50/";
-
-
 	String mapPath = "/img/map.map"; // relative path of the map file
 
 	int[][] map1 = new int[40][40];

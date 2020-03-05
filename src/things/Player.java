@@ -10,17 +10,13 @@ public class Player implements Runnable, GameConfig {
 	private String playerImagUrl = "/img/item/player.png";
 	public Icon icon;
 
-	final public int bx = boardWidth / 2 - eleWidth / 2;
-	final public int by = boardHeight / 2 - eleHeight / 2;
+	public int bx = boardWidth / 2 - eleWidth / 2;
+	public int by = boardHeight / 2 - eleHeight / 2;
 
 	public int width = 50;
 	public int height = 50;
 
-	// location related to map
-	private int x = 250;
-	private int y = 250;
-
-	// element drift
+	// map drift
 	public int mx = 0;
 	public int my = 0;
 
@@ -67,25 +63,39 @@ public class Player implements Runnable, GameConfig {
 
 	private void move() {
 
-		if (left) {
-			x -= v;
-			if (mx > 0)
+		// move by repaint the player
+		if (my + by < boardHeight / 2 || my + by > mapHeight - boardHeight / 2) {
+			// reach upper bound or bottom bound			
+			if (up) {
+				by -= v;
+			}
+			if (down) {
+				by += v;
+			}
+		}
+		else if (mx + bx < boardWidth / 2 || mx + bx > mapWidth - boardWidth / 2) {
+			// reach right bound or left bound
+			if (left) {
+				bx -= v;
+			}
+			if (right) {
+				bx += v;
+			}
+			
+		} else {
+			// move by repaint the map
+			if (left) {
 				mx -= v;
-		}
-		if (right) {
-			x += v;
-			if (mx < mapWidth)
+			}
+			if (right) {
 				mx += v;
-		}
+			}
 
-		if (up) {
-			if(my > 0)
-			my -= v;
+			if (up) {
+				my -= v;
+			}
+			if (down) {
+				my += v;
+			}
 		}
-		if (down) {
-			if(my < mapHeight)
-			my += v;
-		}
-
-	}
-}
+	}}
