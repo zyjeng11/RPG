@@ -51,7 +51,6 @@ public class Player implements Runnable, GameConfig {
 	public void run() {
 
 		while (true) {
-
 			move();
 			try {
 				Thread.sleep(20);
@@ -64,38 +63,35 @@ public class Player implements Runnable, GameConfig {
 	private void move() {
 
 		// move by repaint the player
-		if (my + by < boardHeight / 2 || my + by > mapHeight - boardHeight / 2) {
-			// reach upper bound or bottom bound			
-			if (up) {
+		if (my + by <= boardHeight / 2 - eleHeight / 2 || my + by >= mapHeight - boardHeight / 2 - eleHeight / 2) {			
+			// reach upper bound or bottom bound
+			if (up)
 				by -= v;
-			}
-			if (down) {
+			if (down)
 				by += v;
-			}
-		}
-		else if (mx + bx < boardWidth / 2 || mx + bx > mapWidth - boardWidth / 2) {
-			// reach right bound or left bound
-			if (left) {
-				bx -= v;
-			}
-			if (right) {
-				bx += v;
-			}
-			
-		} else {
-			// move by repaint the map
-			if (left) {
-				mx -= v;
-			}
-			if (right) {
-				mx += v;
-			}
 
-			if (up) {
-				my -= v;
-			}
-			if (down) {
-				my += v;
-			}
+		} else {
+			by = boardHeight / 2 - eleHeight / 2;
+			// move by repaint the map
+			if (up) 
+				my -= v;			
+			if (down) 
+				my += v;			
 		}
-	}}
+
+		if (mx + bx <= boardWidth / 2 - eleHeight / 2|| mx + bx >= mapWidth - boardWidth / 2- eleHeight / 2) {
+			// reach right bound or left bound
+			if (left) 
+				bx -= v;			
+			if (right) 
+				bx += v;			
+		} else {
+			bx = boardWidth / 2 - eleWidth / 2;
+			// move by repaint the map
+			if (left) 
+				mx -= v;			
+			if (right) 
+				mx += v;			
+		}
+	}
+}
